@@ -8,18 +8,28 @@ index = {"relu": "Activations.ipynb",
          "leaky_relu": "Activations.ipynb",
          "Mish": "Activations.ipynb",
          "mish": "Activations.ipynb",
+         "sigmoid": "Activations.ipynb",
+         "softmax": "Activations.ipynb",
          "get_activation": "Activations.ipynb",
          "__activations__": "Activations.ipynb",
          "__inputDimError__": "Layers.ipynb",
          "Dense": "Layers.ipynb",
+         "Conv2D": "Layers.ipynb",
+         "Flatten": "Layers.ipynb",
+         "Sequential": "Model.ipynb",
          "Data": "data.ipynb",
-         "TrainData": "data.ipynb",
          "TestData": "data.ipynb",
-         "create_db": "data.ipynb"}
+         "TrainData": "data.ipynb",
+         "create_db": "data.ipynb",
+         "mse_loss": "losses.ipynb",
+         "mae_loss": "losses.ipynb",
+         "binary_cross_entropy": "losses.ipynb"}
 
 modules = ["activations.py",
            "layers.py",
-           "data.py"]
+           "model.py",
+           "data.py",
+           "losses.py"]
 
 doc_url = "https://sachinruk.github.io/keraTorch/"
 
