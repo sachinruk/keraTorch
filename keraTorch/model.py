@@ -12,7 +12,7 @@ from fastai.basic_train import Learner
 
 from .data import create_db
 from .layers import *
-# from keraTorch.loss import *
+from .losses import *
 
 # Cell
 class Sequential:
@@ -44,4 +44,7 @@ class Sequential:
         learn.recorder.plot(suggestion=True)
 
     def predict(self, x):
-        return self.learn.model(torch.Tensor(x))
+        self.learn.model.eval()
+        with torch.no_grad():
+            y_preds = self.learn.model(torch.Tensor(x))
+        return y_preds.cpu().numpy()

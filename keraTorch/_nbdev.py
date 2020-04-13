@@ -16,6 +16,7 @@ index = {"relu": "Activations.ipynb",
          "Dense": "Layers.ipynb",
          "Conv2D": "Layers.ipynb",
          "Flatten": "Layers.ipynb",
+         "Activation": "Layers.ipynb",
          "Sequential": "Model.ipynb",
          "Data": "data.ipynb",
          "TestData": "data.ipynb",
@@ -23,7 +24,9 @@ index = {"relu": "Activations.ipynb",
          "create_db": "data.ipynb",
          "mse_loss": "losses.ipynb",
          "mae_loss": "losses.ipynb",
-         "binary_cross_entropy": "losses.ipynb"}
+         "binary_cross_entropy": "losses.ipynb",
+         "ce_loss": "losses.ipynb",
+         "ce4softmax": "losses.ipynb"}
 
 modules = ["activations.py",
            "layers.py",
