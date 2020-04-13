@@ -8,7 +8,7 @@
 
 ## How to use
 
-```python
+```
 from keraTorch.model import Sequential
 from keraTorch.layers import *
 from keraTorch.losses import *
@@ -16,7 +16,7 @@ from keraTorch.losses import *
 
 The data:
 
-```python
+```
 x_train.shape, y_train.shape, x_valid.shape, y_valid.shape
 ```
 
@@ -29,7 +29,7 @@ x_train.shape, y_train.shape, x_valid.shape, y_valid.shape
 
 Model definition:
 
-```python
+```
 model = Sequential()
 model.add(Dense(100, x_train.shape[1], activation='relu'))
 model.add(Dense(50, activation='relu'))
@@ -39,13 +39,13 @@ model.add(Activation('softmax'))
 
 Doesn't actually compile anything but to look like keras we specify the loss as:
 
-```python
+```
 model.compile(ce4softmax)
 ```
 
 Burrow for Fastai's learning rate finder to find best learning rate:
 
-```python
+```
 bs = 256
 model.lr_find(x_train, y_train, bs=bs)
 ```
@@ -304,7 +304,7 @@ model.lr_find(x_train, y_train, bs=bs)
 
 We have the same `.fit` and `.predict` functions:
 
-```python
+```
 model.fit(x_train, y_train, bs, epochs=5, lr=1e-2)
 ```
 
@@ -353,7 +353,7 @@ model.fit(x_train, y_train, bs, epochs=5, lr=1e-2)
 </table>
 
 
-```python
+```
 preds = model.predict(x_valid)
 accuracy = (preds.argmax(axis=-1) == y_valid).mean()
 print(f'Predicted accuracy is {accuracy:.2f}')
