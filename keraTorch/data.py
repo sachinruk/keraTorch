@@ -41,9 +41,9 @@ class TestData(Dataset):
         self.x_type = self.__get_type__(x.dtype.name)
 
     def __get_type__(self, type):
-        if type.startswith('float'):
+        if 'float' in type:
             return torch.float32
-        if type.startswith('int'):
+        if 'int' in type:
             return torch.long
 
     def __len__(self):
@@ -62,7 +62,7 @@ class TrainData(TestData):
         self.y_type = self.__get_type__(y.dtype.name)
 
     def __getitem__(self, i):
-        return torch.tensor(self.x[i], dtype=self.x_type), \
+        return torch.tensor(self.x[i], dtype=torch.float32), \
                 torch.tensor(self.y[i], dtype=self.y_type)
 
 # Cell

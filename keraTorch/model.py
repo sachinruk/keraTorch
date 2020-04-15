@@ -14,11 +14,14 @@ from .data import create_db
 from .layers import *
 from .losses import *
 
+from IPython.display import clear_output
+
 # Cell
 class Sequential:
-    def __init__(self):
+    def __init__(self, model=None):
         self.layers = []
         self.last_dim = None
+        self.model = model
 
     def add(self, layer):
         layer = layer.get_layer(self.last_dim)
@@ -26,7 +29,8 @@ class Sequential:
         self.layers.extend(layer['layers'])
 
     def compile(self, loss, optimizer=None):
-        self.model = nn.Sequential(*self.layers)
+        if len(self.layers) > 0:
+            self.model = nn.Sequential(*self.layers)
         self.loss = loss
 
     def fit(self, x, y, bs, epochs, lr=1e-3, one_cycle=True, get_lr=True):
@@ -41,6 +45,7 @@ class Sequential:
         db = create_db(x, y, bs)
         learn = Learner(db, self.model, loss_func=self.loss)
         learn.lr_find()
+        clear_output()
         learn.recorder.plot(suggestion=True)
 
     def predict(self, x):
