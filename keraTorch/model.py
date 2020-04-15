@@ -34,7 +34,7 @@ class Sequential:
         self.loss = loss
 
     def fit(self, x, y, bs, epochs, lr=1e-3, one_cycle=True, get_lr=True):
-        db = create_db(x, y, bs)
+        db = create_db(x, y, bs=bs)
         self.learn = Learner(db, self.model, loss_func=self.loss)
         if one_cycle:
             self.learn.fit_one_cycle(epochs, lr)
@@ -42,7 +42,8 @@ class Sequential:
             self.learn.fit(epochs, lr)
 
     def lr_find(self, x, y, bs):
-        db = create_db(x, y, bs)
+        db = create_db(x, y, bs=bs)
+#         breakpoint()
         learn = Learner(db, self.model, loss_func=self.loss)
         learn.lr_find()
         clear_output()
