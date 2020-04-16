@@ -22,6 +22,9 @@ class Sequential:
         self.layers = []
         self.last_dim = None
         self.model = model
+        self.device = torch.device('cpu')
+        if torch.cuda.is_available():
+            self.device = torch.device('cuda')
 
     def add(self, layer):
         layer = layer.get_layer(self.last_dim)
@@ -43,7 +46,6 @@ class Sequential:
 
     def lr_find(self, x, y, bs):
         db = create_db(x, y, bs=bs)
-#         breakpoint()
         learn = Learner(db, self.model, loss_func=self.loss)
         learn.lr_find()
         clear_output()
@@ -52,5 +54,5 @@ class Sequential:
     def predict(self, x):
         self.learn.model.eval()
         with torch.no_grad():
-            y_preds = self.learn.model(torch.Tensor(x))
+            y_preds = self.learn.model(torch.Tensor(x).to(device))
         return y_preds.cpu().numpy()
