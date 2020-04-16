@@ -208,7 +208,10 @@ description: "All the basic layers used keratorch."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;Relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">get_layer</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out_layer</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;Relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">get_layer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out_layer</span><span class="p">)</span>
+<span class="n">conv_layer</span> <span class="o">=</span> <span class="n">out_layer</span><span class="p">[</span><span class="s1">&#39;layers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">conv_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -220,12 +223,18 @@ description: "All the basic layers used keratorch."
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;output_dim&#39;: torch.Size([5, 10, 10]), &#39;layers&#39;: [Conv2d(1, 5, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)), ReLU(inplace=True)]}
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;output_dim&#39;: torch.Size([5, 10, 10]),
- &#39;layers&#39;: [Conv2d(1, 5, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)),
-  ReLU(inplace=True)]}</pre>
+<pre>torch.Size([1, 5, 10, 10])</pre>
 </div>
 
 </div>
@@ -243,7 +252,10 @@ description: "All the basic layers used keratorch."
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;Relu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_layer</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out_layer</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;Relu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_layer</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out_layer</span><span class="p">)</span>
+<span class="n">conv_layer</span> <span class="o">=</span> <span class="n">out_layer</span><span class="p">[</span><span class="s1">&#39;layers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">conv_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -255,12 +267,143 @@ description: "All the basic layers used keratorch."
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;output_dim&#39;: torch.Size([5, 10, 10]), &#39;layers&#39;: [Conv2d(1, 5, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)), ReLU(inplace=True)]}
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;output_dim&#39;: torch.Size([5, 10, 10]),
- &#39;layers&#39;: [Conv2d(1, 5, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1)),
-  ReLU(inplace=True)]}</pre>
+<pre>torch.Size([1, 5, 10, 10])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Max-Pool">Max Pool<a class="anchor-link" href="#Max-Pool"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="MaxPool2D" class="doc_header"><code>class</code> <code>MaxPool2D</code><a href="https://github.com/sachinruk/keraTorch/tree/master/keraTorch/layers.py#L94" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MaxPool2D</code>(<strong><code>kernel_size</code></strong>:<code>int</code>=<em><code>2</code></em>, <strong><code>strides</code></strong>:<code>int</code>=<em><code>None</code></em>, <strong><code>padding</code></strong>:<code>int</code>=<em><code>0</code></em>, <strong><code>input_shape</code></strong>:<code>tuple</code>=<em><code>None</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out_layer</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">get_layer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out_layer</span><span class="p">)</span>
+<span class="n">maxpool_layer</span> <span class="o">=</span> <span class="n">out_layer</span><span class="p">[</span><span class="s1">&#39;layers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">maxpool_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;output_dim&#39;: torch.Size([1, 5, 5]), &#39;layers&#39;: [MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)]}
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Size([1, 1, 5, 5])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out_layer</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">get_layer</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out_layer</span><span class="p">)</span>
+<span class="n">maxpool_layer</span> <span class="o">=</span> <span class="n">out_layer</span><span class="p">[</span><span class="s1">&#39;layers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">maxpool_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;output_dim&#39;: torch.Size([1, 5, 5]), &#39;layers&#39;: [MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)]}
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.Size([1, 1, 5, 5])</pre>
 </div>
 
 </div>
@@ -367,7 +510,7 @@ description: "All the basic layers used keratorch."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Activation" class="doc_header"><code>class</code> <code>Activation</code><a href="https://github.com/sachinruk/keraTorch/tree/master/keraTorch/layers.py#L109" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Activation</code>(<strong><code>activation</code></strong>, <strong><code>input_shape</code></strong>=<em><code>None</code></em>)</p>
+<h2 id="Activation" class="doc_header"><code>class</code> <code>Activation</code><a href="https://github.com/sachinruk/keraTorch/tree/master/keraTorch/layers.py#L144" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Activation</code>(<strong><code>activation</code></strong>, <strong><code>input_shape</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 
 </div>
@@ -405,160 +548,6 @@ description: "All the basic layers used keratorch."
 <pre>{&#39;output_dim&#39;: None, &#39;layers&#39;: [Softmax(dim=-1)]}</pre>
 </div>
 
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat keraTorch/layers.py
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre># AUTOGENERATED! DO NOT EDIT! File to edit: Layers.ipynb (unless otherwise specified).
-
-__all__ = [&#39;__inputDimError__&#39;, &#39;Dense&#39;, &#39;Conv2D&#39;, &#39;Flatten&#39;, &#39;Activation&#39;]
-
-# Cell
-import numpy as np
-import torch.nn as nn
-from fastai.vision import *
-from fastai import layers
-
-from .activations import *
-from functools import partial
-
-# Cell
-class __inputDimError__(Exception):
-    pass
-
-# Cell
-class Dense:
-    def __init__(self, units, input_dim=None, activation=None,
-                 use_bias=True, kernel_regularizer=None, bias_regularizer=None,
-                 activity_regularizer=None):
-        &#34;&#34;&#34;
-        Linear layer that takes in `input_dim` and converts it to `units` number of dimensions.
-        parameters:
-        - units: output dimension.
-        - input_dim: input dimension.
-        - activation (optional): non-linear activation.
-        - use_bias (optional): To include bias layer or not (default: True)
-        &#34;&#34;&#34;
-        super().__init__()
-
-        self.input_dim = input_dim
-        self.activation = get_activation(activation) if activation else None
-        if input_dim:
-            self.layer = nn.Linear(input_dim, units, bias=use_bias)
-        else:
-            self.layer = partial(nn.Linear, out_features=units, bias=use_bias)
-        # TODO: implement regularizers
-
-    def get_layer(self, input_dim=None):
-        if input_dim is None and self.input_dim is None:
-            __inputDimError__(&#34;Need to specify number of input dimensions in first layer&#34;)
-        elif input_dim:
-            self.input_dim = input_dim
-            self.layer = self.layer(in_features=input_dim)
-        # else self.layer is already is assigned
-
-        self.output_dim = self.layer.out_features
-        layers = [layer for layer in [self.layer, self.activation] if layer]
-
-        return {&#39;output_dim&#39;: self.output_dim, &#39;layers&#39;: layers}
-
-# Cell
-class Conv2D:
-    def __init__(self, filters:int, kernel_size:int=3, strides:int=1, padding:int=None,
-                 activation:str=None, use_bias:bool=True, input_shape:tuple=None):
-        &#34;&#34;&#34;
-        Apply convolution on image using kernel filters.
-        parameters:
-        - filters: number of kernel filters
-        - kernel_size: the width of the (square) kernel
-        - strides: number of pixels to skip when sliding kernel (default 1)
-        - padding: number of pixels to pad incoming image ` defaults to `ks//2`
-        - activation: non-linearity
-        - use_bias: bias
-        - input_shape: incoming image shape of (#Channels, width, height)
-        &#34;&#34;&#34;
-        self.input_shape = input_shape
-        if input_shape:
-            ni = input_shape[0]
-            self.layer = conv2d(ni, filters, kernel_size, strides, padding, use_bias)
-        else:
-            self.layer = partial(conv2d, nf=filters, ks=kernel_size,
-                                 stride=strides, padding=padding, bias=use_bias)
-        self.activation = get_activation(activation) if activation else None
-
-    def get_layer(self, input_shape=None):
-
-        ni = self.input_shape[0]
-        self.layer = self.layer(ni=ni)
-        # else self.input_shape is already is assigned
-
-        dummy_x = torch.zeros(self.input_shape).unsqueeze(0)
-        self.output_shape = self.layer(dummy_x).shape[1:]
-        layers = [layer for layer in [self.layer, self.activation] if layer]
-
-        return {&#39;output_dim&#39;: self.output_shape, &#39;layers&#39;: layers}
-
-# Cell
-class Flatten:
-    def __init__(self, input_shape=None):
-        self.layer = layers.Flatten()
-        self.input_shape = input_shape
-
-    def get_layer(self, input_shape=None):
-        if input_shape is None and self.input_shape is None:
-            __inputDimError__(&#34;Need to specify input shape in first layer&#34;)
-        elif input_shape:
-            self.input_shape = input_shape
-        # else self.input_shape is already is assigned
-
-        self.output_dim = np.prod(self.input_shape)
-        layers = [self.layer]
-
-        return {&#39;output_dim&#39;: self.output_dim, &#39;layers&#39;: layers}
-
-# Cell
-class Activation:
-    def __init__(self, activation, input_shape=None):
-        self.layer = get_activation(activation)
-        self.input_shape = input_shape
-        self.output_dim = input_shape
-
-    def get_layer(self, input_shape=None):
-        if input_shape is None and self.input_shape is None:
-            __inputDimError__(&#34;Need to specify input shape in first layer&#34;)
-        elif input_shape:
-            self.input_shape = input_shape
-            self.output_dim = input_shape
-        # else self.input_shape is already is assigned
-
-        layers = [self.layer]
-
-        return {&#39;output_dim&#39;: self.output_dim, &#39;layers&#39;: layers}</pre>
-</div>
 </div>
 
 </div>

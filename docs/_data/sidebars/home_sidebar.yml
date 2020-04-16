@@ -17,7 +17,7 @@ entries:
       url: /Layers
     - output: web,pdf
       title: Title
-      url: /Model
+      url: /cifar
     - output: web,pdf
       title: Data
       url: /data

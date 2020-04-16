@@ -3,7 +3,7 @@
     "Overview": "/",
     "Activations": "/Activations",
     "Layers": "/Layers",
-    "Title": "/Model",
+    "Title": "/cifar",
     "Data": "/data",
     "Losses": "/losses"
   }
